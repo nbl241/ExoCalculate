@@ -67,6 +67,18 @@ namespace ExoCalculate
             textBox_Resultat.Text += "9";
         }
 
+        private void button_Vitgule_Click(object sender, EventArgs e)
+        {
+            if (textBox_Resultat.Text.Length > 0)
+            {
+                bool success = double.TryParse(textBox_Resultat.Text[textBox_Resultat.Text.Length - 1].ToString(), out double number);
+                if (success)
+                {
+                    textBox_Resultat.Text += ",";
+                }
+            }
+        }
+
         private void textBox_Result(object sender, EventArgs e)
         {
             
@@ -79,24 +91,64 @@ namespace ExoCalculate
 
         private void button_Multiple_Click(object sender, EventArgs e)
         {
-
+            if (textBox_Resultat.Text.Length > 0)
+            {
+                bool success = double.TryParse(textBox_Resultat.Text[textBox_Resultat.Text.Length - 1].ToString(), out double number);
+                if (success)
+                {
+                    textBox_Resultat.Text += "*";
+                }
+            }
         }
 
         private void button_Plus_Click(object sender, EventArgs e)
         {
-            //creer methode pour additionner
-            Operation operation = new Operation();
-
+            if (textBox_Resultat.Text.Length > 0)
+            {
+                bool success = double.TryParse(textBox_Resultat.Text[textBox_Resultat.Text.Length - 1].ToString(), out double number);
+                if (success)
+                {
+                    textBox_Resultat.Text += "+";
+                }
+            }
         }
 
-        private void button_Egale_Click(object sender, EventArgs e)
+        private void button_Moins_Click(object sender, EventArgs e)
         {
-
+            if (textBox_Resultat.Text.Length > 0)
+            {
+                bool success = double.TryParse(textBox_Resultat.Text[textBox_Resultat.Text.Length - 1].ToString(), out double number);
+                if (success)
+                {
+                    textBox_Resultat.Text += "-";
+                }
+            }
         }
 
         private void button_Divise_Click(object sender, EventArgs e)
         {
+            if (textBox_Resultat.Text.Length > 0)
+            {
+                bool success = double.TryParse(textBox_Resultat.Text[textBox_Resultat.Text.Length - 1].ToString(), out double number);
+                if (success)
+                {
+                    textBox_Resultat.Text += "/";
+                }
+            }
+        }
 
+        private void button_Egale_Click(object sender, EventArgs e)
+        {
+            DisplayOperation dispOp = new DisplayOperation();
+
+            if (textBox_Resultat.Text.Length > 0)
+            {
+                bool success = double.TryParse(textBox_Resultat.Text[textBox_Resultat.Text.Length - 1].ToString(), out double number);
+                if (success)
+                {
+                    textBox_Resultat.Text = dispOp.RetrieveResult(textBox_Resultat.Text);
+                }
+            }
         }
     }
 }
